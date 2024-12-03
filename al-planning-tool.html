@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Ultimate AI-based Planning Tool </title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class="background">
+    
+    <div class="bar" style="background-color:#3E2F5B"></div>
+    <div class="bar" style="background-color:#F9C22E"></div>
+    <div class="bar" style="background-color:#53B3CB"></div>
+    <div class="bar" style="background-color:#E01A4F"></div>
+
+    <h1 class="m-5 fw-bold">ChunkIt</h1>
+
+    <!-- Add task & buttons -->
+    <div class="addTask">
+    <div class="input-group ms-5 mb-5">
+      <input type="text" class="form-control" placeholder="Add a task..." aria-label="Task" aria-describedby="button-addon2">
+      
+      <!-- Due Date -->
+      <input id="dueDate" class="btn btn-danger" 
+        type="date" 
+        id="Test_DatetimeLocal" 
+        min="2024-01-01T00:00" 
+        max="2030-12-31T23:59" 
+        step="1"></input>
+      
+        <!-- Chunkify -->
+        <button id="chunkify" type="button" class="btn btn-info">Chunkify</button>
+    </div>
+    </div>
+
+   <div class="m-5">
+      <div class="container">
+        <div class="row align-items-start">
+          <div class="col me-5 mb-5">
+            <!-- After "chunkify" add a changable subtask with checkbox -->
+            <div class="tasks">
+              
+              <h6>Task #1</h6>
+
+              <div class="input-group mb-3">
+                <div class="input-group-text">
+                  <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with checkbox">
+              </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-text">
+                  <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with checkbox">
+              </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-text">
+                  <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with checkbox">
+              </div>
+
+              <h6 class="mt-5">Task #2</h6>
+
+              <div class="input-group mb-3">
+                <div class="input-group-text">
+                  <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with checkbox">
+              </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-text">
+                  <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with checkbox">
+              </div>
+
+              <div class="input-group mb-5">
+                <div class="input-group-text">
+                  <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with checkbox">
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mt-1"></div>
+
+            <!-- Integrate Calendar -->
+            <!-- <iframe src="https://calendar.google.com/calendar/embed?height=450&wkst=1&ctz=America%2FNew_York&bgcolor=%23ffffff&showPrint=0&showTitle=0&showTz=0&src=Y18xYmJmOWM2YzM2YTFhZDBlYTRhZTIxM2U1YWYwMWY3YjJhMmIzYzU0ZWJjMWRjYTcwZGNkMDQ2NDM1NDc2ZjcxQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23009688" style="border-width:0" width="600" height="450" frameborder="0" scrolling="no"></iframe> -->
+          
+            <!-- Placeholder Calendar -->
+            <div id="placeholder_calendar" class="border p-3 bg-light text-center">
+              <p>Your calendar will appear here once you log in.</p>
+            </div>
+
+            <!-- Google Calendar Events -->
+            <div id="content" class="border p-3 bg-light" style="display: none;">
+              <!-- Calendar events dynamically loaded here -->
+            </div>
+
+            <!-- Google API Buttons -->
+            <div class="mt-5">
+              <button id="authorize_button" class="btn btn-success" onclick="handleAuthClick()">Sign in</button>
+              <button id="signout_button" class="btn btn-warning" onclick="handleSignoutClick()">Sign Out</button>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </div> 
+    <div class="bar" style="background-color:#70A288"></div>
+    </div>npx http-server
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+    <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+  </body>
+</html>
